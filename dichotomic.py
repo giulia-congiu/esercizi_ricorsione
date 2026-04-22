@@ -12,7 +12,8 @@ def dichotomic(input_list, val):
     else:
         index = len(input_list)//2
         return (dichotomic(input_list[:index], val)
-                or dichotomic(input_list[index:], val)) #mi da true o false, in base al fatto che la lista contenga o meno val
+                or dichotomic(input_list[index:], val))
+        #mi da true o false, in base al fatto che la lista contenga o meno val
 
 
 if __name__ == '__main__':
