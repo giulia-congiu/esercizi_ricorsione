@@ -1,6 +1,8 @@
 import copy
 from time import time
 
+'''LA somma di ogni riga, ogni colonna e ogni diagonale deve essere uguale.
+    formula:  N(N^2+1) / 2'''
 class QuadratoMagico():
     def __init__(self, N):
         self.N = N
@@ -8,18 +10,18 @@ class QuadratoMagico():
         self.n_soluzioni = 0
         self.soluzioni = []
 
-    # soluzione del quadrato magico rappresentata da un vettore di N**2 elementi,
-    #ogni elemento rappresenta una cella del quadrato, ed il suo valore è il numero che
-    # mettiamo nella cella
+    '''soluzione del quadrato magico rappresentata da un vettore di N**2 elementi,
+    ogni elemento rappresenta una cella del quadrato, ed il suo valore è il numero che
+    mettiamo nella cella'''
     def risolvi_quadrato(self):
         self.n_chiamate = 0
         self.n_soluzioni = 0
         self.soluzioni = []
-        self._ricorsione([], set(range(1,self.N*self.N+1)))
+        self._ricorsione([], set(range(1,self.N*self.N+1))) #tutti i numeri da 1 a n^2 messi dentro un set: rimanenti
 
     def _ricorsione(self, parziale, rimanenti):
         self.n_chiamate += 1
-        #caso terminale
+        #caso terminale: ho inserito tutti gli elementi possibili: ho riempito tutte le celle
         if len(parziale) == self.N*self.N:
             if self._is_valid(parziale):
                 self.n_soluzioni += 1
